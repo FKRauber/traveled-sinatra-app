@@ -1,9 +1,9 @@
 <nav>
   <% if logged_in? %>
     <h2>Hello, <%= current_user.username %>!</h2>
-    <a href='#'>See All Tweets</a><br>
-    <a href='#'>Create New Tweet</a><br>
-    <a href='#'>Log Out</a>
+    <a href='/locations/show'>See All Locations</a><br>
+    <a href='locations/new'>Create New Location</a><br>
+    <a href='/logout'>Log Out</a>
   <% else %>
     <h2>Please Login or Sign Up</h2>
     <h3><a href='/login'>Login</a></h3>

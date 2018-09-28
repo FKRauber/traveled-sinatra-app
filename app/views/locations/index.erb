@@ -1,0 +1,11 @@
+<h2>All of <%= current_user.username %>'s Locations</h2>
+
+<% @locations.each do |location| %>
+	<div>
+		<%= location.year_visited %>: <%= location %> in <%= location.country %>
+	</div>
+<% end %>
+<br>
+<a href='/locations/new'>Create New Location</a>
+<a href='/locations/edit'>Edit Location</a>
+<a href='/logout'>Log Out</a>
