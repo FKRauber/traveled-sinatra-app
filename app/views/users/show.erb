@@ -1,0 +1,13 @@
+<h3>Hello, <%= @user.username %>!</h3>
+<h3>Here are your traveled locations</h3>
+
+<% @user.locations.each do |location| %>
+	<div>
+		<p><%= location.year_visited %>: <%= location %> in <%= location.country %></p>
+	</div>
+<% end %>
+
+<a href='/locations'>See All Locations</a>
+<a href='/locations/new'>Create New Location</a>
+<a href='/locations/edit'>Edit Location</a>
+<a href='/logout'>Log Out</a>
