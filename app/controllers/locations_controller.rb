@@ -17,4 +17,10 @@ class LocationsController < ApplicationController
     erb :'/locations/edit'
   end
 
+  delete '/locations/:id/delete' do
+    @location = Location.find_by_id(params[:id])
+    @location.delete
+    redirect to '/locations/show'
+  end
+
 end
