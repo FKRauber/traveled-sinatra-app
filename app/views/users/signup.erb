@@ -1,7 +1,7 @@
 <h2>Sign Up</h2>
 
 <% unless locals.empty? %>
-	<%= message %>
+	<%= locals[:message] %>
 <% end %>
 
 <form method="POST" action="/signup">
