@@ -4,7 +4,7 @@ class LocationsController < ApplicationController
     erb :'/locations/index'
   end
 
-  get 'locations/show' do
+  get '/locations/show' do
     erb :'/locations/show'
   end
   #
