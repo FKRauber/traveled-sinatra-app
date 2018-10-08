@@ -1,14 +1,16 @@
 <nav>
   <% if logged_in? %>
     <h2>Hello, <%= current_user.username %>!</h2>
-    <a href='/locations/show'>See All Locations</a><br>
-    <a href='locations/new'>Create New Location</a><br>
+    <h3>How would you like to proceed?</h3>
+    <a href='/locations/index'>See All Trips</a><br>
+    <a href='/show'>See My Trips</a><br>
+    <a href='locations/new'>Create New Trip</a><br>
     <a href='/logout'>Log Out</a>
   <% else %>
     <h2>Please Login or Sign Up</h2><br>
     <h3><a href='/login'>Login</a></h3><br>
     <h3><a href='/signup'>Sign Up</a></h3><br>
-    <h3><a href='/locations/index'>All Public Locations</h3>
+    <h3><a href='/locations/index'>All Public Trips</h3>
 
   <% end %>
 </nav>

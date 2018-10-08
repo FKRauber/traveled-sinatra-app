@@ -28,6 +28,7 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :'/users/login'
     else
+      binding.pry
       redirect '/show'
     end
   end
