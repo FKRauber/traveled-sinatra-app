@@ -1,3 +1,7 @@
 class Location < ActiveRecord::Base
-  has_many :countrys, through: :location_country
+  belongs_to :trip
+
+  def self.valid_params?(params)
+    return !params[:name].empty? && !params[:description].empty?
+  end
 end

@@ -11,27 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180928190011) do
-
-  create_table "countries", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "location_country", force: :cascade do |t|
-    t.integer "location_id"
-    t.integer "country_id"
-  end
+ActiveRecord::Schema.define(version: 20180928184758) do
 
   create_table "locations", force: :cascade do |t|
     t.string  "name"
+    t.text    "description"
+    t.integer "trip_id"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.string  "name"
     t.integer "year_visited"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "username"
-    t.string  "email"
-    t.string  "password_digest"
-    t.integer "country_id"
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
   end
 
 end
