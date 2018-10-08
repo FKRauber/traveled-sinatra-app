@@ -2,7 +2,9 @@
 <h2>All of <%= current_user.username %>'s Trips</h2>
 
 
-
+<% @user.trips.each do |trip| %>
+  <%= trip.name %>
+<% end %>
 
 
 <a href='/locations/index'>See All Locations</a><br>
