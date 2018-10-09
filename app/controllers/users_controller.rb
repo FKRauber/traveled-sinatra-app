@@ -44,10 +44,10 @@ class UsersController < ApplicationController
   # SHOW USER
   get '/show' do
     if !logged_in?
-      # public locations
-      redirect '/locations/index'
+      # public trips
+      redirect '/trips/index'
     else
-      # personal locations
+      # personal trips
       erb :'/users/show'
     end
   end
