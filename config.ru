@@ -7,6 +7,6 @@ end
 use Rack::MethodOverride
 
 use UsersController
-use LocationsController
+use TripsController
 
 run ApplicationController
