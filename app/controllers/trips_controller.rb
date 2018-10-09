@@ -1,4 +1,4 @@
-class tripsController < ApplicationController
+class TripsController < ApplicationController
 
   get '/trips/index' do
     erb :'/trips/index'
