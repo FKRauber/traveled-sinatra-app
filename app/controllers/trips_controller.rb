@@ -1,20 +1,52 @@
 class TripsController < ApplicationController
 
   get '/trips/index' do
-    erb :'/trips/index'
+    if !logged_in?
+      redirect '/'
+    else
+      @trips = Trip.all
+      erb :'/trips/index'
+    end
   end
 
-  get '/trips/show' do
-    erb :'/trips/show'
+  get '/trips/:id' do
+    if !logged_in?
+      redirect '/'
+    else
+      @trips = Trip.find_by(params[:id])
+      erb :'/trips/show'
+    end
   end
 
   get '/trips/new' do
     erb :'/trips/new'
   end
 
-  get '/trips/edit' do
+  get '/trips/:id/edit' do
+    @trips = Trip.find_by(params[:id])
     erb :'/trips/edit'
   end
+
+
+  post 'trips/index' do
+    if !logged_in?
+      redirect '/'
+    else
+      @trips = Trip.create(params)
+      redirect '/trips/index'
+    end
+  end
+
+
+  patch '/trips/:id' do
+    if !logged_in?
+      redirect '/'
+    else
+      erb :'/trips/:id'
+    end
+  end
+
+
 
   delete '/trips/:id/delete' do
     @trip = trip.find_by_id(params[:id])

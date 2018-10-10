@@ -1,5 +1,14 @@
 <h3>tripS / EDIT</h3>
-<h2>Edit trip</h2>
+<h2>Edit Trip</h2>
+
+<h3><%= @trip.name %></h3>
+
+<form method="POST" action="/trips/<%= @trip.id %>">
+  <label>Trip Name</label><input type="text" name="name" value="<%= @trip.name %>">
+  <label>Year Visited</label><input type="text" name="year_visited" value="<%= @trip.year_visited %>" maxlength="4">
+  <input type="submit" value="Update">
+</form>
+
 
 <a href='/trips/index'>See All trips</a><br>
 <a href='/trips/new'>Create New trip</a><br>

@@ -2,8 +2,8 @@
 <h2>All of <%= current_user.username %>'s Trips</h2>
 
 
-<% @user.trips.each do |trip| %>
-  <%= trip.name %>
+<% current_user.trips.each do |trip| %>
+  <a href="/trips/:id"><%= trip.name %></a>
 <% end %>
 
 

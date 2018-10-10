@@ -1,5 +1,9 @@
 <h3>All Public trips</h3>
 
+<% @trips.each do |trip| %>
+  <%= trip.year_visited %>
+  <%= trip.name %>
+<% end %>
 
 <br>
 <h3><a href='/'>Go Back</a></h3>
