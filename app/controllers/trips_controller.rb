@@ -9,6 +9,10 @@ class TripsController < ApplicationController
     end
   end
 
+  get '/trips/new' do
+    erb :'/trips/new'
+  end
+
   get '/trips/:id' do
     if !logged_in?
       redirect '/'
@@ -18,17 +22,13 @@ class TripsController < ApplicationController
     end
   end
 
-  get '/trips/new' do
-    erb :'/trips/new'
-  end
-
   get '/trips/:id/edit' do
     @trips = Trip.find_by(params[:id])
     erb :'/trips/edit'
   end
 
 
-  post 'trips/index' do
+  post '/trips/index' do
     if !logged_in?
       redirect '/'
     else
