@@ -1,19 +1,21 @@
 <h3>trips/show</h3>
 <h3>SHOW INDIVIDUAL USER trip AND PROVIDE DELETE</h3>
 
-<%= @trips.year_visited %><br>
-<%= @trips.name %>
-
-<h3>Locations</h3>
 <ul>
+<%= @trips.year_visited %> <%= @trips.name %>
+<h3>Locations</h3>
   <% @trips.locations.each do |location| %>
     <li><a href="/locations/<%= location.id %>"><%= location.name %></a></li>
   <% end %>
+  <a href='/trips/<%= @trips.id %>/edit'>Edit</a>
+  <form method="POST" action="/trips/<%= @trips.id %>/delete">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete">
+  </form>
+
 </ul>
-<a href="/trips/<%= @trip.id %>/edit">Edit</a>
 
 
 <a href='/trips/index'>See All trips</a><br>
 <a href='/trips/new'>Create New trip</a><br>
-<a href='/trips/edit'>Edit trip</a><br>
 <a href='/logout'>Log Out</a>

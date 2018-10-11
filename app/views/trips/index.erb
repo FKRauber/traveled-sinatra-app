@@ -1,8 +1,7 @@
 <h3>All Public trips</h3>
 
 <% @trips.each do |trip| %>
-  <%= trip.year_visited %>
-  <%= trip.name %>
+  <a href="/trips/<%= trip.id %>"><%= trip.year_visited %>  <%= trip.name %></a><br>
 <% end %>
 
 <br>
