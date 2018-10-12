@@ -23,7 +23,7 @@ class TripsController < ApplicationController
   end
 
   get '/trips/:id/edit' do
-    @trips = Trip.find(params[:id])
+    @trip = Trip.find(params[:id])
     erb :'/trips/edit'
   end
 
@@ -38,11 +38,11 @@ class TripsController < ApplicationController
   end
 
 
-  patch '/trips/:id/edit' do
+  patch '/trips/:id' do
     if !logged_in?
       redirect '/'
     else
-      erb :'/trips/:id'
+      redirect '/trips/:id'
     end
   end
 
