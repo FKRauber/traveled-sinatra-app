@@ -32,7 +32,7 @@ class TripsController < ApplicationController
     if !logged_in?
       redirect '/'
     else
-      @trips = Trip.create(params)
+      Trip.create(params)
       redirect '/trips/index'
     end
   end
@@ -42,7 +42,9 @@ class TripsController < ApplicationController
     if !logged_in?
       redirect '/'
     else
-      redirect '/trips/:id'
+      @trip = Trip.find(params[:id])
+      @trip.update(name: params[:name], year_visited: params[:year_visited])
+      redirect "/trips/#{params[:id]}"
     end
   end
 
