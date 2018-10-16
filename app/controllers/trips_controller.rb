@@ -53,7 +53,7 @@ class TripsController < ApplicationController
   delete '/trips/:id/delete' do
     @trip = Trip.find(params[:id])
     @trip.delete
-    redirect to '/trips/show'
+    redirect to '/trips/index'
   end
 
 end
