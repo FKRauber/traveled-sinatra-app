@@ -51,7 +51,7 @@ class TripsController < ApplicationController
 
 
   delete '/trips/:id/delete' do
-    @trip = trip.find_by_id(params[:id])
+    @trip = Trip.find(params[:id])
     @trip.delete
     redirect to '/trips/show'
   end
