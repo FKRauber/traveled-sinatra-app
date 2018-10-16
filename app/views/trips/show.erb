@@ -1,7 +1,7 @@
 <h3><%= current_user.username %>'s Trip: <%= @trips.name %></h3>
 
 <ul>
-<%= @trips.year_visited %> <%= @trips.name %>
+<%= @trips.year_visited %> <%= @trips.name %><br>
   <a href='/trips/<%= @trips.id %>/edit'>Edit</a>
   <form method="POST" action="/trips/<%= @trips.id %>/delete">
     <input id="hidden" type="hidden" name="_method" value="delete">
