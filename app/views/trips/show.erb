@@ -2,16 +2,11 @@
 
 <ul>
 <%= @trips.year_visited %> <%= @trips.name %>
-<h3>Locations</h3>
-  <% @trips.locations.each do |location| %>
-    <li><a href="/locations/<%= location.id %>"><%= location.name %></a></li>
-  <% end %>
   <a href='/trips/<%= @trips.id %>/edit'>Edit</a>
   <form method="POST" action="/trips/<%= @trips.id %>/delete">
     <input id="hidden" type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete">
   </form>
-
 </ul>
 
 
