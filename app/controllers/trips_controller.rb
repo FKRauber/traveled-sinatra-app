@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
 
-  get '/trips/index' do
+  get '/trips/index' do       # loads trips/index page - All Public Trips
     if !logged_in?
       redirect '/'
     else
@@ -9,11 +9,11 @@ class TripsController < ApplicationController
     end
   end
 
-  get '/trips/new' do
+  get '/trips/new' do         # loads new form
     erb :'/trips/new'
   end
 
-  get '/trips/:id' do
+  get '/trips/:id' do         # loads show page
     if !logged_in?
       redirect '/'
     else
@@ -22,29 +22,31 @@ class TripsController < ApplicationController
     end
   end
 
-  get '/trips/:id/edit' do
+  get '/trips/:id/edit' do     # loads edit form
     @trip = Trip.find(params[:id])
     erb :'/trips/edit'
   end
 
 
-  post "/trips/index" do
-    if !logged_in?
-      redirect '/'
-    else
-      Trip.create(params)
-      redirect "/trips/index"
-    end
-  end
 
 
-  patch '/trips/:id' do
+
+  patch '/trips/:id' do          # updates a trip
     if !logged_in?
       redirect '/'
     else
       @trip = Trip.find(id: params[:id])
       @trip.update(name: params[:name], year_visited: params[:year_visited])
-      redirect "/trips/#{params[:id]}"
+      redirect "/trips/#{@trip.id]}"
+    end
+  end
+
+  post "/trips/index" do        # creates a trip
+    if !logged_in?
+      redirect '/'
+    else
+      Trip.create(params)
+      redirect to "/trips/index"
     end
   end
 
