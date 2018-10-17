@@ -13,7 +13,7 @@ class TripsController < ApplicationController
     erb :'/trips/new'
   end
 
-  get '/trips/:id' do         # loads show page
+  get '/trips/:id' do         # loads trips/show page
     if !logged_in?
       redirect '/'
     else
@@ -22,7 +22,7 @@ class TripsController < ApplicationController
     end
   end
 
-  get '/trips/:id/edit' do     # loads edit form
+  get '/trips/:id/edit' do            # loads edit form
     @trip = Trip.find(params[:id])
     erb :'/trips/edit'
   end
@@ -52,7 +52,7 @@ class TripsController < ApplicationController
 
 
 
-  delete '/trips/:id/delete' do
+  delete '/trips/:id/delete' do     # deletes a trip
     @trip = Trip.find(params[:id])
     @trip.delete
     redirect to '/trips/index'
