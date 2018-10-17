@@ -7,6 +7,13 @@ App listing the places a person has traveled
 
 Usage
 
+  Enter the following:
+    $ git clone git@github.com:FKRauber/traveled-sinatra-app.git
+    $ cd traveled-sinatra-app
+    $ bundle install
+    $ shotgun
+  Copy shotgun IP address into browser's address bar
+  Use website as standard
 
 
 Development
