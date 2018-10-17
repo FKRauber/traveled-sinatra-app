@@ -1,9 +1,11 @@
 <h2>All of <%= current_user.username %>'s Trips</h2>
 
-
 <% current_user.trips.each do |trip| %>
-  <a href="/trips/:id"><%= trip.name %></a>
+  <ul>
+    <li><a href="trips/<%= trip.id %>"><%= trip.name %></a></li>
+  </ul>
 <% end %>
+
 
 
 <a href='/trips/index'>See All trips</a><br>

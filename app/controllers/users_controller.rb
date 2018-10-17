@@ -51,6 +51,14 @@ class UsersController < ApplicationController
       erb :'/users/show'
     end
   end
+  post '/show' do
+    @user = User.find_by(:username => params[:username])
+    if !@user.nil? && @user == current_user
+      erb :'users/show'
+    else
+      redirect '/trip/index'
+    end
+  end
 
   # LOGOUT
   get '/logout' do
