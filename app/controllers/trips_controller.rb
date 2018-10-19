@@ -29,15 +29,18 @@ class TripsController < ApplicationController
 
 
 
-
-
   patch '/trips/:id' do          # updates a trip
     if !logged_in?
       redirect '/'
     else
       @trip = Trip.find(params[:id])
-      @trip.update(name: params[:name], year_visited: params[:year_visited])
-      redirect "/trips/#{@trip.id}"
+      if current_user.id == @trip.user_id
+        @trip.update(name: params[:name], year_visited: params[:year_visited])
+        redirect "/trips/#{@trip.id}"
+      else
+        "You cannot do that"
+        redirect "trips/#{@trip.id}"
+      end
     end
   end
 
