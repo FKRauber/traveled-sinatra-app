@@ -24,7 +24,13 @@ class TripsController < ApplicationController
 
   get '/trips/:id/edit' do            # loads edit form
     @trip = Trip.find(params[:id])
-    erb :'/trips/edit'
+    if current_user.id == @trip.user_id
+      @trip.update(name: params[:name], year_visited: params[:year_visited])
+      erb :'/trips/edit'
+    else
+      # "You cannot do that"
+      redirect "trips/#{@trip.id}"
+    end
   end
 
 
@@ -38,7 +44,7 @@ class TripsController < ApplicationController
         @trip.update(name: params[:name], year_visited: params[:year_visited])
         redirect "/trips/#{@trip.id}"
       else
-        "You cannot do that"
+        # "You cannot do that"
         redirect "trips/#{@trip.id}"
       end
     end
@@ -48,7 +54,7 @@ class TripsController < ApplicationController
     if !logged_in?
       redirect '/'
     else
-      Trip.create(params)
+      current_user.trips.create(params)
       redirect to "/trips/index"
     end
   end

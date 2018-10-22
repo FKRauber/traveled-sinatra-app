@@ -2,11 +2,13 @@
 
 <ul>
 <%= @trips.year_visited %> <%= @trips.name %><br>
+<% if current_user.id == @trips.user_id %>
   <a href='/trips/<%= @trips.id %>/edit'>Edit</a>
   <form method="POST" action="/trips/<%= @trips.id %>/delete">
     <input id="hidden" type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete">
   </form>
+<% end %>
 </ul>
 
 
