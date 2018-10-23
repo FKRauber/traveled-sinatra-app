@@ -1,4 +1,6 @@
+require 'rack-flash'
 class TripsController < ApplicationController
+  use Rack::Flash
 
   get '/trips/index' do       # loads trips/index page - All Public Trips
     if !logged_in?
@@ -44,7 +46,7 @@ class TripsController < ApplicationController
         @trip.update(name: params[:name], year_visited: params[:year_visited])
         redirect "/trips/#{@trip.id}"
       else
-        # "You cannot do that"
+        flash[:message] = "You cannot do that"
         redirect "trips/#{@trip.id}"
       end
     end
