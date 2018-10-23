@@ -63,8 +63,12 @@ class TripsController < ApplicationController
 
   delete '/trips/:id/delete' do     # deletes a trip
     @trip = Trip.find(params[:id])
-    @trip.delete
-    redirect to '/trips/index'
+    if current_user.id == @trip.user_id
+      @trip.delete
+      redirect to '/trips/index'
+    else
+      redirect "trips/#{@trip.id}"
+    end
   end
 
 end
