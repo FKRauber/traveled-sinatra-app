@@ -5,17 +5,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   </head>
   <body>
-    <div>
-      <% if logged_in? %>
-        <p>Current user: <%= current_user.username %></p>
-        <p>Current user id: <%= current_user.id %></p>
-      <% end %>
-      <% if @trips %>
-        <p>Current trip: <%= @trips.name %></p>
-        <p>Current trip id: <%= @trips.id %></p>
-        <p>Current trip user id: <%= @trips.user_id %></p>
-      <% end %>
-    </div>
     <h1>Welcome to Traveled!</h1>
     <%= yield %>
   </body>
