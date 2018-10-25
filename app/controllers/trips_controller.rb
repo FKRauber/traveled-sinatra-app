@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
 
-  get '/trips/index' do       # loads trips/index page - All Public Trips
+  get '/trips' do       # loads trips/index page - All Public Trips
     if !logged_in?
       redirect '/'
     else
@@ -50,7 +50,7 @@ class TripsController < ApplicationController
     end
   end
 
-  post "/trips/index" do        # creates a trip
+  post "/trips" do        # creates a trip
     if !logged_in?
       redirect '/'
     else
